@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #encoding=utf-8
 
-import sys
+import os
 import const
 
 
@@ -16,12 +16,12 @@ class commonutils():
 	    self.stderr = stderr
     
     def get_os_type(self):
-	if str(sys.platform).upper().startswith("WIN"):
-	    return const.Const.SYSTEM_PLATFORM_WINDOWS
-	elif str(sys.platform).upper().startswith("LINUX"):
-	    return const.Const.SYSTEM_PLATFORM_LINUX
+	if os.name == "nt":
+	    return const.SYSTEM_PLATFORM_WINDOWS
+	elif os.name == "posix":
+	    return const.SYSTEM_PLATFORM_LINUX
 	else:
-	    return const.Const.SYSTEM_PLATFORM_OTHERS
+	    return const.SYSTEM_PLATFORM_OTHERS
 
 	
 if __name__ == '__main__':
